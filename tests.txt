@@ -1,0 +1,18 @@
+Statement
+    #identifier [param1?] [param2?]...
+Expression
+    literal
+        0
+        "asd"
+    variable
+        asd
+    function
+        asd([param1?] [param2?]...)
+Substitution
+    {<expression>}
+
+
+Test inputs
+
+This is a (test... text) for substitutions {lastName + " " + firstName}.
+#bg field dark#name intro#spriteadd mc neutral 0#say mc
