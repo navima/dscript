@@ -1,10 +1,10 @@
 lexer grammar DscriptLexer;
 
-OPEN: '{' -> pushMode(dsExpression);
-TEXT: ~('{')+;
+OPEN_EXPR: '{' -> pushMode(ds);
+OPEN_STATEMENT: '#' -> pushMode(ds);
+TEXT: (~('{' | '#') | '\\#' | '\\{')+;
 
-mode dsExpression;
-NUMBER: [0-9]+;
+mode ds;
 IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
 INTEGER: '0' | [1-9][0-9]*;
 FLOAT: [0-9]* '.' [0-9]+;
@@ -33,3 +33,4 @@ CLOSE_SQUARE_BRACKET: ']';
 OPEN_CURLY_BRACKET: '{';
 CLOSE_CURLY_BRACKET: '}' -> popMode;
 COLON: ':';
+OPEN_STATEMENT2: '#';
