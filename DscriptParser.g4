@@ -4,7 +4,7 @@ options {
 }
 
 body: text*;
-substitution: SUBSTITUTION expression CLOSE_CURLY_BRACKET;
+substitution: OPEN expression CLOSE_CURLY_BRACKET;
 expression:
 	literal
 	| IDENTIFIER
