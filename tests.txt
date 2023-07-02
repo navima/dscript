@@ -14,6 +14,6 @@ Substitution
 
 Test inputs
 
-This is a (test... text) for substitutions {lastName + " " + firstName}.
+This is a (test... text) for substitutions {lastName + " " + firstName} {true && false}.
 escaping subs: \{} \#  {"{}"} {"\{}"} \##valami valaki (ujuj/9)
 more comple{"X"} test: {"#<>"}#bg field dark#name intro#spriteadd mc neutral 0#say mc

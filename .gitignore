@@ -4,3 +4,5 @@ antlr-4.13.0-complete.jar
 *.class
 *.tokens
 *.interp
+/target/
+/.idea/
