@@ -1,6 +1,5 @@
 antlr-4.13.0-complete.jar
 .antlr/
-*.java
 *.class
 *.tokens
 *.interp
