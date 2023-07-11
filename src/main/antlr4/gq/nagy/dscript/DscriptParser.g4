@@ -16,4 +16,4 @@ expression:
 	| expression TERNARY_OPERATOR expression COLON expression;
 statement_identifier: IDENTIFIER;
 variable: IDENTIFIER;
-literal: INTEGER | FLOAT | STRING;
+literal: INTEGER | FLOAT | STRING | BOOLEAN;

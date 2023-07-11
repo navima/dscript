@@ -1,9 +1,6 @@
 import gq.nagy.dscript.DscriptLexer;
 import gq.nagy.dscript.DscriptParser;
-import gq.nagy.dscript.DscriptParserBaseListener;
-import gq.nagy.dscript.DscriptParserBaseVisitor;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.ErrorNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -18,7 +15,8 @@ public class DScriptTest {
     @MethodSource("testDataProvider")
     public void test(String in) {
         // only tests for really big errors, not actual AST correctness.
-        var parser = new DscriptParser(new CommonTokenStream(new DscriptLexer(CharStreams.fromString(in))));
+        var lexer = new DscriptLexer(CharStreams.fromString(in));
+        var parser = new DscriptParser(new CommonTokenStream(lexer));
         var errors = new ArrayList<>();
         var listener = new BaseErrorListener() {
             @Override
@@ -27,7 +25,7 @@ public class DScriptTest {
                 super.syntaxError(recognizer, offendingSymbol, line, charPositionInLine, msg, e);
             }
         };
-        new DscriptLexer(CharStreams.fromString(in)).addErrorListener(listener);
+        lexer.addErrorListener(listener);
         parser.addErrorListener(listener);
 
         // When
@@ -39,7 +37,9 @@ public class DScriptTest {
 
     public static Stream<Arguments> testDataProvider() {
         return Stream.of(
-                "This is a (test... text) for substitutions {lastName + \" \" + firstName} {true && false}.\n",
+                "{0}valami{1}{2}  {3} {        4        } {\"\\{\"} som\\{eth\\}ing", // Test substitutions and escaping
+                "A: {10} B: {10.2} C: {\"something~\"} D: {true} C: {false} D: {someConstant}", // Test literals
+                "This is a (test... text) for operators {lastName + \" \" + firstName} {true && !false} {true || false} {56+9} {x+y} {x-y} {x/y} {x*y} .\n", // Test operators
                 "escaping subs: \\{} \\#  {\"{}\"} {\"\\{}\"} \\##valami valaki (ujuj/9)\n",
                 "more comple{\"X\"} test: {\"#<>\"}#bg field dark#name intro#spriteadd mc neutral 0#say mc"
         ).map(e -> () -> new Object[]{e});
