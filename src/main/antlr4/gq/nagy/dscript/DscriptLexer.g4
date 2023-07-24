@@ -11,9 +11,11 @@ IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;
 INTEGER: '0' | [1-9][0-9]*;
 FLOAT: [0-9]* '.' [0-9]+;
 STRING: '"' (~["\n\r] | '\\' .)* '"';
+MINUS: '-';
+EXCL: '!';
+COMMA: ',';
 BINARY_OPERATOR:
 	'+'
-	| '-'
 	| '*'
 	| '/'
 	| '%'
@@ -25,7 +27,6 @@ BINARY_OPERATOR:
 	| '>='
 	| '&&'
 	| '||';
-UNARY_OPERATOR: '-' | '!';
 TERNARY_OPERATOR: '?';
 WS: [ \t\r\n]+ -> skip;
 OPEN_BRACKET: '(';
