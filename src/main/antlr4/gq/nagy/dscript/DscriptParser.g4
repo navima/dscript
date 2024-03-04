@@ -4,7 +4,8 @@ options {
 }
 
 body: text* statement*;
-text: TEXT (substitution TEXT?)*;
+text: (substitution|clean_text)+;
+clean_text: TEXT;
 substitution: OPEN_EXPR expression CLOSE_CURLY_BRACKET;
 statement: (OPEN_STATEMENT | OPEN_STATEMENT2) statement_identifier (expression COMMA?)*;
 expression: //TODO move `as string` etc to expression

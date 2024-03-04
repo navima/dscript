@@ -37,3 +37,4 @@ OPEN_CURLY_BRACKET: '{';
 CLOSE_CURLY_BRACKET: '}' -> popMode;
 COLON: ':';
 OPEN_STATEMENT2: '#';
+// TODO ability to have additional text after statement
