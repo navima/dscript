@@ -84,7 +84,7 @@
 
     <distributionManagement>
         <repository>
-            <id>GitHub Packages</id>
+            <id>github</id>
             <url>https://maven.pkg.github.com/navima/dscript</url>
         </repository>
     </distributionManagement>
