@@ -30,9 +30,9 @@ jobs:
 
     - name: Set Maven version
       run: |
-        PROJECTVERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
-        echo "$PROJECTVERSION"
-        mvn versions:set -DnewVersion="$PROJECTVERSION.$(date -u '+%Y%m%d%H%M')"
+        PROJECTVERSION=$(mvn -B help:evaluate -Dexpression=project.version -q -DforceStdout)
+        echo "Project version is $PROJECTVERSION"
+        mvn -B versions:set -DnewVersion="$PROJECTVERSION.$(date -u '+%Y%m%d%H%M')"
 
     - name: Build with Maven
       run: mvn --batch-mode package --file pom.xml
