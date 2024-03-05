@@ -30,7 +30,7 @@ jobs:
 
     - name: Set Maven version
       run: |
-        PROJECTVERSION = $(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+        PROJECTVERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         echo "$PROJECTVERSION"
         mvn versions:set -DnewVersion="$PROJECTVERSION.$(date -u '+%Y%m%d%H%M')"
 
