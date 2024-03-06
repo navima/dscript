@@ -1,6 +1,6 @@
-import gq.nagy.dscript.DSDeclLexer;
-import gq.nagy.dscript.DSDeclParser;
-import gq.nagy.dscript.DscriptLexer;
+import eu.navima.dscript.DSDeclLexer;
+import eu.navima.dscript.DSDeclParser;
+import eu.navima.dscript.DscriptLexer;
 import org.antlr.v4.runtime.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;

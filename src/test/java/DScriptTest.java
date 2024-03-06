@@ -1,5 +1,5 @@
-import gq.nagy.dscript.DscriptLexer;
-import gq.nagy.dscript.DscriptParser;
+import eu.navima.dscript.DscriptLexer;
+import eu.navima.dscript.DscriptParser;
 import org.antlr.v4.runtime.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
