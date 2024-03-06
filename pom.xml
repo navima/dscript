@@ -44,9 +44,22 @@
                 <version>4.13.1</version>
                 <executions>
                     <execution>
+                        <id>generate-java</id>
                         <goals>
                             <goal>antlr4</goal>
                         </goals>
+                    </execution>
+                    <execution>
+                        <id>generate-typescript</id>
+                        <goals>
+                            <goal>antlr4</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>
+                                <argument>-Dlanguage=TypeScript</argument>
+                            </arguments>
+                            <outputDirectory>${project.build.directory}/ts/</outputDirectory>
+                        </configuration>
                     </execution>
                 </executions>
                 <configuration>
