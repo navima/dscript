@@ -63,16 +63,12 @@ jobs:
         cache: 'npm'
         registry-url: https://npm.pkg.github.com/
         scope: "@navima"
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Set Npm Version
       run: |
         npm version ${{ env.VERSION }} --no-git-tag-version --no-workspaces-update
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Publish to GitHub Npm
       run: npm publish
       env:
-        NODE_AUTH_TOKEN: ${{ secrets.PUBLISH_GITHUB_TOKEN }}
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
