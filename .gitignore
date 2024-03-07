@@ -6,5 +6,4 @@ antlr-4.13.0-complete.jar
 /target/
 /.idea/
 gen/
-*.ts
 node_modules/
