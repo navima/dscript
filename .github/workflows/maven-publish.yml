@@ -61,6 +61,7 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+        registry-url: https://npm.pkg.github.com/
         scope: "@navima"
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
