@@ -29,16 +29,43 @@ jobs:
         distribution: 'temurin'
         cache: 'maven'
 
+    - name: Cache Maven packages
+      uses: actions/cache@v2
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    
+    - name: Calculate artifact version
+      id: version
+      run: |
+        BASEPROJECTVERSION=$(mvn -B help:evaluate -Dexpression=project.version -q -DforceStdout)
+        echo "Project version is $BASEPROJECTVERSION"
+        DATE=$(date -u '+%Y%m%d%H%M')
+        echo "Date is $DATE"
+        PROJECTVERSION="$BASEPROJECTVERSION.$DATE"
+        echo "VERSION=$PROJECTVERSION" >> $GITHUB_ENV
+
     - name: Set Maven version
       run: |
-        PROJECTVERSION=$(mvn -B help:evaluate -Dexpression=project.version -q -DforceStdout)
-        echo "Project version is $PROJECTVERSION"
-        mvn -B versions:set -DnewVersion="$PROJECTVERSION.$(date -u '+%Y%m%d%H%M')"
+        mvn -B versions:set -DnewVersion="${{ env.VERSION }}"
 
     - name: Build with Maven
       run: mvn --batch-mode package --file pom.xml
 
-    - name: Publish to GitHub Packages Apache Maven
+    - name: Publish to GitHub Maven
       run: mvn --batch-mode deploy
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Set Npm Version
+      run: |
+        npm version ${{ env.VERSION }} --no-git-tag-version --no-workspaces-update
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Publish to GitHub Npm
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
