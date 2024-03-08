@@ -70,6 +70,6 @@ jobs:
         npm version ${{ env.VERSION }} --no-git-tag-version --no-workspaces-update
 
     - name: Publish to GitHub Npm
-      run: npm publish
+      run: npm run build && npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
