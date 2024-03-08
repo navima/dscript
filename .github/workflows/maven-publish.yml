@@ -50,7 +50,7 @@ jobs:
         mvn -B versions:set -DnewVersion="${{ env.VERSION }}"
 
     - name: Build with Maven
-      run: mkdir src/main/ts/generated && chmod 777 src/main/ts/generated && mvn --batch-mode package
+      run: mkdir src/main/ts/generated && chmod 777 src/main/ts/generated && ls -lah src/main/ts && mvn --batch-mode package
 
     - name: Publish to GitHub Maven
       run: mvn --batch-mode deploy
