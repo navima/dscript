@@ -1,18 +1,20 @@
 {
   "name": "@navima/dscript",
   "version": "1.0.12",
-  "description": "",
-  "main": "src/main/ts/index.ts",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navima/dscript.git"
   },
+
+
+  "main": "src/main/ts/index.ts",
   "files": [
     "target/ts/*.ts"
   ],
+
+  
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
-  },
-  "author": "",
-  "license": "ISC"
+  }
 }
