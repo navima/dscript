@@ -6,15 +6,17 @@
     "type": "git",
     "url": "git+https://github.com/navima/dscript.git"
   },
-
-
   "main": "src/main/ts/index.ts",
   "files": [
     "target/ts/*.ts"
   ],
-
-  
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "typescript": "5.x"
+  },
+  "dependencies": {
+    "antlr4": "4.x"
   }
 }
