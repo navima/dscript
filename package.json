@@ -1,6 +1,6 @@
 {
   "name": "@navima/dscript",
-  "version": "1.0.43",
+  "version": "1.0.48",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
@@ -8,9 +8,10 @@
   },
   "scripts": {
     "build": "tsc",
+    "postbuild": "shx mv target/js/target/ts/* target/js/src/main/ts/",
     "prepublish": "npm run build"
   },
-  "main": "target/js/index.js",
+  "main": "target/js/src/main/ts/index.js",
   "files": [
     "target/js",
     "src/main/ts",
