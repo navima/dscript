@@ -59,7 +59,7 @@
                                 <argument>-Dlanguage=TypeScript</argument>
                                 <argument>-Xexact-output-dir</argument>
                             </arguments>
-                            <outputDirectory>${project.build.sourceDirectory}/../ts/generated</outputDirectory>
+                            <outputDirectory>${project.build.directory}/ts/</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
