@@ -1,22 +1,29 @@
 {
   "name": "@navima/dscript",
-  "version": "1.0.12",
+  "version": "1.0.43",
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/navima/dscript.git"
   },
-  "main": "src/main/ts/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublish": "npm run build"
+  },
+  "main": "target/js/index.js",
   "files": [
-    "target/ts/*.ts"
+    "target/js",
+    "src/main/ts",
+    "src/main/antlr4"
   ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
   "devDependencies": {
-    "typescript": "5.x"
+    "typescript": "5.x",
+    "shx": "^0.3.4"
   },
   "dependencies": {
-    "antlr4": "4.x"
+    "antlr4": "^4.13.1-patch-1"
   }
 }

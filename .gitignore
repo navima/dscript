@@ -1,5 +1,6 @@
 antlr-4.13.0-complete.jar
 .antlr/
+.vscode/
 *.class
 *.tokens
 *.interp
@@ -7,3 +8,4 @@ antlr-4.13.0-complete.jar
 /.idea/
 gen/
 node_modules/
+src/main/ts/generated/
